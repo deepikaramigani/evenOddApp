@@ -1,4 +1,3 @@
-// Write your code here
 import './index.css'
 
 import {Component} from 'react'
@@ -7,15 +6,15 @@ class EvenOddApp extends Component {
   state = {count: 0, message: 'Count is Even'}
 
   onIncrement = () => {
-    const randomNumber = Math.floor(Math.random() * 100) + 1
+    const randomNumber = Math.floor(Math.random() * 100)
     this.setState(prevState => ({count: prevState.count + randomNumber}))
     const {count} = this.state
     console.log(count)
     if (count === 0) {
       this.setState(() => ({message: 'Count is Even'}))
-    } else if (count % 2 === 1) {
+    } else if ((count + randomNumber) % 2 === 1) {
       this.setState(() => ({message: 'Count is Odd'}))
-    } else if (count % 2 === 0.0) {
+    } else if ((count + randomNumber) % 2 !== 1) {
       this.setState(() => ({message: 'Count is Even'}))
     }
   }
